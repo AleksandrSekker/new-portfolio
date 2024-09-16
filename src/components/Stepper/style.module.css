@@ -1,0 +1,124 @@
+.stepper {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  z-index: 1;
+}
+
+.stepper__button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 18px 0 10px 0;
+  background: transparent;
+  border: none;
+  gap: 5px;
+  font-family: Orbitron, sans-serif;
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 23px;
+  color: white;
+  cursor: pointer;
+}
+
+.stepper__button p {
+  text-align: center;
+}
+
+.scroll__to__top__block {
+  position: fixed;
+  right: 26px;
+  bottom: 67px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+  justify-content: center;
+}
+
+.scroll__to__top__text {
+  color: #FFFFFF;
+  font-family: Urbanist, sans-serif;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 17px;
+}
+
+.scroll__to__top__image__wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  background: #FFFFFF;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.footer__bot {
+  display: flex;
+  justify-content: space-between;
+  padding-left: 24px;
+  padding-right: 24px;
+  margin-bottom: 22px;
+}
+
+.footer__copy {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 16px;
+  color: #FFFFFF;
+}
+
+.footer__privacy {
+  display: flex;
+}
+
+.footer__privacy a {
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 16px;
+  display: block;
+  margin-left: 32px;
+  color: #FFFFFF;
+  text-decoration: underline;
+}
+
+@media (max-width: 767px) {
+  .footer__bot {
+    flex-direction: column;
+    gap: 16px;
+    justify-content: center;
+  }
+
+  .footer__bot .footer__copy {
+    text-align: center;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 16px;
+  }
+
+  .footer__privacy {
+    display: flex;
+    font-family: "Urbanist", sans-serif;
+    justify-content: center;
+    gap: 46px;
+  }
+
+  .footer__privacy a {
+    margin-left: 0;
+  }
+
+  .scroll__to__top__block {
+    right: 0;
+    bottom: 114px;
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
