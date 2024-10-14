@@ -1,21 +1,19 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { aboutData } from "@/constants/general";
-import AboutScreen from "@/screens/About/AboutScreen";
-import ProjectsScreen from "@/screens/Projects/ProjectsScreen";
+import SkillsScreen from "@/screens/Skills/SkillsScreen";
 
 const meta = {
-  title: "Screens/Projects",
-  component: ProjectsScreen,
+  title: "Screens/Skills",
+  component: SkillsScreen,
   tags: ["autodocs"],
   parameters: {
     layout: "fullscreen",
   },
   args: {},
-} satisfies Meta<typeof ProjectsScreen>;
+} satisfies Meta<typeof SkillsScreen>;
 
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const ProjectsPage: Story = {
+export const SkillsPage: Story = {
   args: {},
 };

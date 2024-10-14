@@ -3,13 +3,15 @@
 import Link from "next/link";
 import React from "react";
 
-import Logo from "@/components/Logo/Logo";
 import { routes } from "@/constants/general";
 import { motion } from "framer-motion";
 import { useStep } from "@/context/StepProvider/StepProvider";
+import { Hamburger, Logo } from "@/components";
+import { useSidebar } from "@/context/SidebarContext/SidebarContext";
 
-const Header = () => {
+export const Header = () => {
   const { currentStep, handleStepChange } = useStep();
+  const { isHovered, isOpen, handleHoverState, handleOpenState } = useSidebar();
   return (
     <header>
       <nav className="h-[68px] border-gray-200 bg-blue-500 px-4 dark:bg-gray-900 lg:px-6">
@@ -19,6 +21,12 @@ const Header = () => {
               <Logo />
             </Link>
           </div>
+          <Hamburger
+            setIsHovered={handleHoverState}
+            isHovered={isHovered}
+            setIsOpen={handleOpenState}
+            isOpen={isOpen}
+          />
           <div
             className="hidden w-full items-center justify-between lg:order-1 lg:flex lg:w-auto"
             id="mobile-menu-2"
@@ -47,5 +55,3 @@ const Header = () => {
     </header>
   );
 };
-
-export default Header;

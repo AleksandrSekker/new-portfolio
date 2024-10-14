@@ -1,12 +1,9 @@
 import React from "react";
-import { motion } from "framer-motion";
+import { RightBlockWrapperProps } from "@/components/types";
 
-type Props = {
-  children: React.ReactNode;
-  className?: string;
-};
-const RightBlockWrapper = ({ children, className }: Props) => {
+export const RightBlockWrapper = ({
+  children,
+  className,
+}: RightBlockWrapperProps) => {
   return <div className={className}>{children}</div>;
 };
-
-export default RightBlockWrapper;

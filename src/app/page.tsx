@@ -10,6 +10,7 @@ import { useCallback, useEffect, useState } from "react";
 import { useStep } from "@/context/StepProvider/StepProvider";
 import { AnimatePresence, motion } from "framer-motion";
 import { Stepper } from "@/components/Stepper/Stepper";
+import { ContactFormModal } from "@/components";
 
 const { firstName, subTitle, jobTitle } = homeData;
 const { title, body } = aboutData;
@@ -77,35 +78,38 @@ export default function Home() {
     };
   }, [handleScroll, handleSwipe]);
   return (
-    <AnimatePresence mode="wait" initial={true}>
-      <motion.div
-        key={currentStep}
-        onAnimationComplete={() => setScrollLock(false)}
-        drag="y"
-        dragConstraints={{ top: 0, bottom: 0 }}
-        onDrag={(event, info) => {
-          if (info.offset.y > 30) handleSwipe("up");
-          else if (info.offset.y < -30) handleSwipe("down");
-        }}
-        initial={{
-          y: currentStep < previousStep ? "-25%" : "25%",
-        }}
-        animate={{
-          y: "0%",
-          opacity: [0, 1],
-        }}
-        exit={{
-          y: currentStep < previousStep ? "25%" : "-25%",
-          opacity: [1, 0],
-        }}
-        transition={{
-          duration: 1,
-          ease: "easeInOut",
-        }}
-      >
-        {components[currentStep]}
-      </motion.div>
-      <Stepper activeStep={currentStep} setActiveStep={handleStepChange} />
-    </AnimatePresence>
+    <>
+      <AnimatePresence mode="wait" initial={true}>
+        <motion.div
+          key={currentStep}
+          onAnimationComplete={() => setScrollLock(false)}
+          drag="y"
+          dragConstraints={{ top: 0, bottom: 0 }}
+          onDrag={(event, info) => {
+            if (info.offset.y > 30) handleSwipe("up");
+            else if (info.offset.y < -30) handleSwipe("down");
+          }}
+          initial={{
+            y: currentStep < previousStep ? "-25%" : "25%",
+          }}
+          animate={{
+            y: "0%",
+            opacity: [0, 1],
+          }}
+          exit={{
+            y: currentStep < previousStep ? "25%" : "-25%",
+            opacity: [1, 0],
+          }}
+          transition={{
+            duration: 1,
+            ease: "easeInOut",
+          }}
+        >
+          {components[currentStep]}
+        </motion.div>
+        <Stepper activeStep={currentStep} setActiveStep={handleStepChange} />
+      </AnimatePresence>
+      <ContactFormModal />
+    </>
   );
 }

@@ -2,20 +2,11 @@ import style from "./style.module.css";
 import { motion } from "framer-motion";
 import ArrowDownSvg from "@/assets/arrowDown.svg";
 import ArrowTopSvg from "@/assets/arrowTop.svg";
-import Link from "next/link";
 import { useStep } from "@/context/StepProvider/StepProvider";
-import Footer from "@/components/Footer/Footer";
-type StepperProps = {
-  activeStep: number;
-  setActiveStep: (activeStep: number) => void;
-};
-const stepData = [
-  { step: 0, label: "About Me" },
-  { step: 1, label: "My Projects" },
-  { step: 2, label: "My Skills" },
-  { step: 3, label: "Contact me" },
-  { step: 4, label: "" },
-];
+import { Footer } from "@/components";
+import { StepperProps } from "@/components/types";
+import { stepData } from "@/constants/general";
+
 export const Stepper = ({ activeStep, setActiveStep }: StepperProps) => {
   const { handleStepChange } = useStep();
 

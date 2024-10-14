@@ -1,10 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { AvatarImageProps } from "@/components/types";
 
-type Props = {
-  image: string;
-};
-const AvatarImage = ({ image }: Props) => {
+export const AvatarImage = ({ image }: AvatarImageProps) => {
   return (
     <motion.img
       className={
@@ -17,9 +15,7 @@ const AvatarImage = ({ image }: Props) => {
       whileTap={{ scale: 0.9 }}
       whileHover={{ borderRadius: "50%" }}
       src={image}
-      alt={"my avatar"}
+      alt="my avatar"
     />
   );
 };
-
-export default AvatarImage;

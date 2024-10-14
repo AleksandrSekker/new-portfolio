@@ -1,13 +1,9 @@
 import { links, user } from "@/constants/general";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { IconDefinition } from "@fortawesome/free-solid-svg-icons";
-type FooterProps = {
-  firstName?: string;
-  lastName?: string;
-  linksArray?: { link: string; id: number; icon: IconDefinition }[];
-};
-const Footer = ({
+import { FooterProps } from "@/components/types";
+
+export const Footer = ({
   firstName = user.firstName,
   lastName = user.lastName,
   linksArray = links,
@@ -34,5 +30,3 @@ const Footer = ({
     </footer>
   );
 };
-
-export default Footer;

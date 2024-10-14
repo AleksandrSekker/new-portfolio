@@ -1,19 +1,51 @@
 "use client";
 
 import React from "react";
-import PageTitle from "@/components/PageTitle/PageTitle";
-import ContactForm from "@/components/ContactForm/ContactForm";
+import { Button } from "@/components";
+import { useModal } from "@/context/ModalContext/ModalContext";
 
 const ContactScreen = () => {
+  const { handleModalState } = useModal();
+
   return (
-    <div className="m-auto w-full max-w-screen-xl px-2 py-2 ">
-      <PageTitle title={"Contact"} className="mb-4" />
-      <div className={`grid gap-8`}>
-        <div className="col-span-3 h-auto w-full rounded-xl border border-gray-200 shadow-md shadow-gray-400 dark:bg-white lg:p-4">
-          <div className="p-4">
-            <ContactForm />
+    <div className="m-auto w-full max-w-screen-xl px-2 py-2">
+      <div className="grid gap-8">
+        <div className="space-y-4">
+          <div>
+            <p className="font-bold text-lg text-white">Email</p>
+            <a
+              href="mailto:oleksandr.sekker@gmail.com"
+              className="text-blue-500 hover:underline"
+            >
+              oleksandr.sekker@gmail.com
+            </a>
+          </div>
+          <div>
+            <p className="font-bold text-lg text-white">Telegram</p>
+            <a
+              href="https://t.me/sekk_er"
+              className="text-blue-500 hover:underline"
+            >
+              sekk_er
+            </a>
+          </div>
+          <div>
+            <p className="font-bold text-lg text-white">Discord</p>
+            <a
+              href="https://discordapp.com/users/613024264706064390"
+              className="text-blue-500 hover:underline"
+            >
+              oleksandr_sekker
+            </a>
           </div>
         </div>
+        <Button
+          label={"Write message"}
+          onClick={() => {
+            handleModalState(true);
+            console.log("clicked");
+          }}
+        />
       </div>
     </div>
   );

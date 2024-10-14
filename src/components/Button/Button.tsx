@@ -1,13 +1,5 @@
 import styles from "./button.module.css";
-
-export interface ButtonProps {
-  backgroundColor?: string;
-  size?: "small" | "medium" | "large";
-  variant?: "primary" | "secondary";
-  fullWidth?: boolean;
-  label: string;
-  onClick?: () => void;
-}
+import { ButtonProps } from "@/components/types";
 
 export const Button = ({
   variant = "primary",
@@ -16,6 +8,7 @@ export const Button = ({
   fullWidth = false,
   label,
   onClick,
+  children,
   ...props
 }: ButtonProps) => {
   const mode = styles[variant];
@@ -31,6 +24,7 @@ export const Button = ({
         mode,
       ].join(" ")}
       style={buttonStyle}
+      onClick={onClick}
       {...props}
     >
       {label}

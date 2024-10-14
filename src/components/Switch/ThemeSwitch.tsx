@@ -1,10 +1,12 @@
+"use client";
+
 import React, { Fragment, useEffect, useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 import { Switch } from "@headlessui/react";
 import useDarkMode from "@/hooks/useDarkMode";
 
-const ThemeSwitch = () => {
+export const ThemeSwitch = () => {
   const [theme, setTheme] = useDarkMode();
   const [enabled, setEnabled] = useState(true);
   useEffect(() => {
@@ -38,5 +40,3 @@ const ThemeSwitch = () => {
     </Switch>
   );
 };
-
-export default ThemeSwitch;

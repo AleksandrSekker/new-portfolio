@@ -14,7 +14,7 @@ import {
   faInfo,
 } from "@fortawesome/free-solid-svg-icons";
 
-export const links = [
+const links = [
   {
     link: "https://discordapp.com/users/613024264706064390",
     id: 1,
@@ -48,12 +48,12 @@ export const links = [
   },
 ];
 
-export const user = {
+const user = {
   firstName: "Oleksandr",
   lastName: "Sekker",
 };
 
-export const routes = [
+const routes = [
   { title: "Home", link: "/", icon: faHome, id: 0 },
   { title: "About", link: "/about", icon: faInfo, id: 1 },
   { title: "Projects", link: "/projects", icon: faBriefcase, id: 2 },
@@ -61,19 +61,19 @@ export const routes = [
   { title: "Contact", link: "/contact", icon: faContactCard, id: 4 },
 ];
 
-export const homeData = {
+const homeData = {
   firstName: "Oleksandr",
   jobTitle: "A Front-End Web Developer",
   subTitle: "I’m focused on building responsive front-end web applications",
 };
-export const aboutData = {
+const aboutData = {
   title: "About me",
   body: [
     "I specialise in building front-end UI applications that connect with API and other backend technologies.",
     "I have experience working in cross-functional teams and collaborating with designers, back-end developers, and project managers to deliver high-quality products. I possess excellent problem-solving skills, attention to detail, and a strong work ethic, which helps me to identify and resolve issues quickly and efficiently.",
   ],
 };
-export const skillsData = [
+const skillsData = [
   {
     title: "HTML",
     icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
@@ -147,7 +147,7 @@ export const skillsData = [
     id: 12,
   },
 ];
-export const projectsData = [
+const projectsData = [
   {
     title: "sustieProfile",
     backgroundImg: "/assets/SustieProfile.png",
@@ -180,6 +180,27 @@ export const projectsData = [
     id: 4,
   },
 ];
-export const placeholderImage = "/assets/DefaultProject.jpg";
-export const defaultProjectTitle = "defaultProjectTitle";
-export const defaultProjectTech = "defaultProjectTech";
+const stepData = [
+  { step: 0, label: "About Me" },
+  { step: 1, label: "My Projects" },
+  { step: 2, label: "My Skills" },
+  { step: 3, label: "Contact me" },
+  { step: 4, label: "" },
+];
+const placeholderImage = "/assets/DefaultProject.jpg";
+const defaultProjectTitle = "defaultProjectTitle";
+const defaultProjectTech = "defaultProjectTech";
+
+export {
+  links,
+  user,
+  routes,
+  homeData,
+  aboutData,
+  skillsData,
+  projectsData,
+  stepData,
+  placeholderImage,
+  defaultProjectTitle,
+  defaultProjectTech,
+};

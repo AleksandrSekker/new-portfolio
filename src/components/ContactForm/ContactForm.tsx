@@ -4,17 +4,15 @@ import React, { useCallback, useState } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { type FieldError, useForm } from "react-hook-form";
 import axios from "axios";
-import Input from "@/components/Input/Input";
 import { schema } from "@/components/ContactForm/schema";
+import { Input } from "@/components";
+import { SendMailTypes } from "@/components/types";
+import { PropsContactForm } from "@/components/ContactForm/type";
 
-type SendMailTypes = {
-  email: string;
-  subject: string;
-  message: string;
-  name: string;
-  phone: string;
-};
-const ContactForm = () => {
+export const ContactForm = ({
+  handleSubState,
+  setCloseModal,
+}: PropsContactForm) => {
   const [responseMessage, setResponseMessage] = useState({
     isSuccessful: false,
     message: "",
@@ -34,6 +32,11 @@ const ContactForm = () => {
           message: "Thank you for your message.",
         });
       }
+      handleSubState(true);
+      setCloseModal();
+      setTimeout(() => {
+        handleSubState(false);
+      }, 3000);
     } catch (e) {
       console.log(e);
       setResponseMessage({
@@ -41,7 +44,7 @@ const ContactForm = () => {
         message: "Oops something went wrong. Please try again.",
       });
     }
-  }, [watch]);
+  }, [handleSubState, setCloseModal, watch]);
   console.log(responseMessage);
   const sendEmail = async ({
     email,
@@ -122,5 +125,3 @@ const ContactForm = () => {
     </form>
   );
 };
-
-export default ContactForm;

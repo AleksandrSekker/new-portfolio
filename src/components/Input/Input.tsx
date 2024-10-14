@@ -1,22 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
-import {
-  type FieldError,
-  type FieldValues,
-  type UseFormRegister,
-} from "react-hook-form";
+import { InputProps } from "@/components/types";
 
-interface InputProps {
-  title: string;
-  placeholder: string;
-  type: string;
-  className: string;
-  name: string;
-  register: UseFormRegister<FieldValues>;
-  errors: FieldError | undefined;
-}
-
-const Input = ({
+export const Input = ({
   title,
   placeholder,
   type,
@@ -59,5 +45,3 @@ const Input = ({
     </div>
   );
 };
-
-export default Input;

@@ -3,10 +3,10 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Head from "next/head";
 import { user } from "@/constants/general";
-import Header from "@/components/Header/Header";
-import Footer from "@/components/Footer/Footer";
 import { ModalProvider } from "@/context/ModalContext/ModalContext";
 import { StepProvider } from "@/context/StepProvider/StepProvider";
+import { Header } from "@/components";
+import { SidebarProvider } from "@/context/SidebarContext/SidebarContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -33,10 +33,13 @@ export default function RootLayout({
           </Head>
           <ModalProvider>
             <StepProvider>
-              <Header />
-              <main className="mx-auto max-w-screen-xl w-full">{children}</main>
-              {/*<Footer />*/}
-              <div></div>
+              <SidebarProvider>
+                <Header />
+                <main className="mx-auto max-w-screen-xl w-full px-4">
+                  {children}
+                </main>
+                <div></div>
+              </SidebarProvider>
             </StepProvider>
           </ModalProvider>
         </div>

@@ -1,6 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { aboutData } from "@/constants/general";
-import AboutScreen from "@/screens/About/AboutScreen";
 import ProjectsScreen from "@/screens/Projects/ProjectsScreen";
 
 const meta = {

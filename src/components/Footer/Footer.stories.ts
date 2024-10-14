@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import { fn } from "@storybook/test";
-import Footer from "./Footer";
 import { links } from "@/constants/general";
+import { Footer } from "@/components";
 
 const meta = {
   title: "Layout/Footer",

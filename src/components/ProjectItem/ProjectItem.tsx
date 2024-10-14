@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -7,15 +9,9 @@ import {
   placeholderImage,
 } from "@/constants/general";
 import { isValidUrl } from "@/utils/generalUtils";
+import { ProjectItemProps } from "@/components/types";
 
-type ProjectItemProps = {
-  title: string;
-  backgroundImg: string;
-  tags: string[];
-  projectUrl: string;
-};
-
-const ProjectItem = ({
+export const ProjectItem = ({
   title,
   backgroundImg,
   tags,
@@ -54,5 +50,3 @@ const ProjectItem = ({
     </div>
   );
 };
-
-export default ProjectItem;
