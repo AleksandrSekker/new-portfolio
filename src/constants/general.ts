@@ -54,11 +54,11 @@ const user = {
 };
 
 const routes = [
-  { title: "Home", link: "/", icon: faHome, id: 0 },
-  { title: "About", link: "/about", icon: faInfo, id: 1 },
-  { title: "Projects", link: "/projects", icon: faBriefcase, id: 2 },
-  { title: "Skills", link: "/skills", icon: faBlog, id: 3 },
-  { title: "Contact", link: "/contact", icon: faContactCard, id: 4 },
+  { linkText: "Home", stepIndex: 0 },
+  { linkText: "About", stepIndex: 1 },
+  { linkText: "Projects", stepIndex: 2 },
+  { linkText: "Skills", stepIndex: 3 },
+  { linkText: "Contact", stepIndex: 4 },
 ];
 
 const homeData = {

@@ -16,3 +16,5 @@ export { Overlay } from "./Overlay/Overlay";
 export { ThankYouModal } from "./ThankYouModal/ThankYouModal";
 export { ContactFormModal } from "./ContactFormModal/ContactFormModal";
 export { Hamburger } from "./Hamburger/Hamburger";
+export { Sidebar } from "./Sidebar/Sidebar";
+export { StyledLink } from "./StyledLink/StyledLink";

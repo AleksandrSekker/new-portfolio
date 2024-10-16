@@ -6,7 +6,7 @@ import { useStep } from "@/context/StepProvider/StepProvider";
 import { Footer } from "@/components";
 import { StepperProps } from "@/components/types";
 import { stepData } from "@/constants/general";
-
+import clsx from "clsx";
 export const Stepper = ({ activeStep, setActiveStep }: StepperProps) => {
   const { handleStepChange } = useStep();
 
@@ -14,7 +14,10 @@ export const Stepper = ({ activeStep, setActiveStep }: StepperProps) => {
     <div className={style.stepper}>
       {activeStep !== 4 ? (
         <motion.button
-          className={style.stepper__button}
+          className={clsx(
+            style.stepper__button,
+            "text-foreground-light dark:text-white",
+          )}
           key={activeStep}
           initial={{
             y: "100%",
@@ -30,6 +33,7 @@ export const Stepper = ({ activeStep, setActiveStep }: StepperProps) => {
             duration: 1,
             ease: "easeInOut",
           }}
+          onClick={() => setActiveStep(activeStep + 1)}
         >
           <motion.p
             animate={{ y: ["10%", "-10%", "10%"] }}
@@ -38,12 +42,12 @@ export const Stepper = ({ activeStep, setActiveStep }: StepperProps) => {
               duration: 1.5,
               ease: "linear",
             }}
-            onClick={() => setActiveStep(activeStep + 1)}
           >
             {stepData.map((data) => data.step === activeStep && data.label)}
           </motion.p>
-
-          <ArrowDownSvg />
+          <div className={"stroke-foreground-light dark:stroke-white"}>
+            <ArrowDownSvg />
+          </div>
         </motion.button>
       ) : (
         <motion.div
@@ -79,10 +83,23 @@ export const Stepper = ({ activeStep, setActiveStep }: StepperProps) => {
             }}
             onClick={() => handleStepChange(0)}
           >
-            <div className={style.scroll__to__top__image__wrapper}>
+            <div
+              className={clsx(
+                style.scroll__to__top__image__wrapper,
+
+                "stroke-white bg-blue-500 dark:bg-white",
+              )}
+            >
               <ArrowTopSvg />
             </div>
-            <p className={style.scroll__to__top__text}>Scroll to top</p>
+            <p
+              className={clsx(
+                style.scroll__to__top__text,
+                "text-blue-500 dark:text-white",
+              )}
+            >
+              Scroll to top
+            </p>
           </motion.div>
           <Footer />
         </motion.div>

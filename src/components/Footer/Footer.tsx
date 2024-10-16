@@ -12,7 +12,7 @@ export const Footer = ({
     <footer className="bg-background-light  p-4 dark:bg-background-dark sm:p-6">
       <div className="mx-auto max-w-screen-xl">
         <div className="text-center sm:flex sm:items-center sm:justify-between">
-          <span className="w-100 order-last text-center text-sm text-white sm:order-first">
+          <span className="w-100 order-last text-center text-sm text-blue-500 dark:text-white sm:order-first">
             {`© ${firstName} ${lastName} ${new Date().getFullYear()}`}
           </span>
           <div className="mt-4 flex justify-center space-x-6 sm:mt-0">
@@ -20,7 +20,7 @@ export const Footer = ({
               <Link key={id} href={link}>
                 <FontAwesomeIcon
                   icon={icon}
-                  className="h-4 w-4 text-white hover:text-gray-600"
+                  className="h-4 w-4 text-blue-500 dark:text-white hover:text-gray-600"
                 />
               </Link>
             ))}

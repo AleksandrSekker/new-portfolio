@@ -83,6 +83,19 @@ type StepperProps = {
   setActiveStep: (activeStep: number) => void;
 };
 
+// Sidebar
+type SidebarProps = {
+  isOpen: boolean;
+  handleSidebarState(): void;
+};
+// Sidebar Link
+type StyledLinkProps = {
+  currentStep: number;
+  thisStep: number;
+  handleStepChange?: (step: number) => void;
+  handleSidebarState: () => void;
+  linkText: string;
+};
 export type {
   AvatarImageProps,
   ButtonProps,
@@ -95,4 +108,6 @@ export type {
   RightBlockWrapperProps,
   SkillItemProps,
   StepperProps,
+  SidebarProps,
+  StyledLinkProps,
 };

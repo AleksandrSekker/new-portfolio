@@ -12,7 +12,9 @@ const ContactScreen = () => {
       <div className="grid gap-8">
         <div className="space-y-4">
           <div>
-            <p className="font-bold text-lg text-white">Email</p>
+            <p className="font-bold text-lg text-blue-500 dark:text-white">
+              Email
+            </p>
             <a
               href="mailto:oleksandr.sekker@gmail.com"
               className="text-blue-500 hover:underline"
@@ -21,7 +23,9 @@ const ContactScreen = () => {
             </a>
           </div>
           <div>
-            <p className="font-bold text-lg text-white">Telegram</p>
+            <p className="font-bold text-lg text-blue-500 dark:text-white">
+              Telegram
+            </p>
             <a
               href="https://t.me/sekk_er"
               className="text-blue-500 hover:underline"
@@ -30,7 +34,9 @@ const ContactScreen = () => {
             </a>
           </div>
           <div>
-            <p className="font-bold text-lg text-white">Discord</p>
+            <p className="font-bold text-lg text-blue-500 dark:text-white">
+              Discord
+            </p>
             <a
               href="https://discordapp.com/users/613024264706064390"
               className="text-blue-500 hover:underline"
@@ -43,7 +49,6 @@ const ContactScreen = () => {
           label={"Write message"}
           onClick={() => {
             handleModalState(true);
-            console.log("clicked");
           }}
         />
       </div>
