@@ -12,7 +12,6 @@ export const StyledLink: React.FC<StyledLinkProps> = ({
   handleSidebarState,
   linkText,
 }) => {
-  // State to control whether the link is being hovered
   const [isHovered, setIsHovered] = React.useState(false);
   return (
     <div className="relative">

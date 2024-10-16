@@ -18,3 +18,4 @@ export { ContactFormModal } from "./ContactFormModal/ContactFormModal";
 export { Hamburger } from "./Hamburger/Hamburger";
 export { Sidebar } from "./Sidebar/Sidebar";
 export { StyledLink } from "./StyledLink/StyledLink";
+export { SwiperSkills } from "./SwiperSkills/SwiperSkills";
