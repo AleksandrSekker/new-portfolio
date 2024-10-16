@@ -1,0 +1,224 @@
+.bot__left__item {
+  display: none;
+}
+.bot__left__item__active {
+  display: block;
+  animation: fadein 1s;
+}
+.bot__left__item__img {
+  margin-top: 42px;
+  margin-left: 76px;
+  width: 100%;
+}
+
+.car__guru__vector__1 {
+  position: absolute;
+  bottom: 0;
+  left: 14px;
+  z-index: 1;
+  max-height: 347px;
+}
+.car__guru__vector__2 {
+  position: absolute;
+  top: 0;
+  right: 14px;
+  z-index: 1;
+  max-height: 347px;
+}
+.image__container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  min-height: 149px;
+  max-height: 150px;
+  overflow: hidden;
+  border-radius: 5px;
+}
+.ezlogs__desktop {
+  display: block;
+}
+.ezchatai__desktop {
+  display: block;
+}
+.owchbuddy__desktop {
+  display: block;
+}
+.car__guru__desktop {
+  display: block;
+}
+.ezlogs__mobile {
+  display: none;
+}
+.ezchatai__mobile {
+  display: none;
+}
+.owchbuddy__mobile {
+  display: none;
+}
+.car__guru__mobile {
+    display: none;
+}
+.ezlogz__vector__1 {
+  position: absolute;
+  top: 14px;
+  left: 34px;
+  z-index: 1;
+  max-height: 124px;
+}
+.ezlogz__vector__2 {
+  position: absolute;
+  top: 36px;
+  right: 13.37px;
+  z-index: 1;
+  max-height: 77.63px;
+}
+.ezlogz__vector__3 {
+  position: absolute;
+  bottom: 15.1px;
+  left: 44px;
+  z-index: 1;
+  max-height: 146px;
+}
+.ezchatai__vector__1 {
+    position: absolute;
+    top: 0;
+    left: 14px;
+    z-index: 1;
+    max-height: 347px;
+}
+.ezchatai__vector__2 {
+    position: absolute;
+    bottom: 0;
+    right: 14px;
+    z-index: 1;
+    max-height: 347px;
+}
+
+.owchbuddy__vector__1 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 1;
+    max-height: 347px;
+    width: 100%;
+}
+.owchbuddy__vector__2 {
+    position: absolute;
+    bottom: 0;
+    right: 14px;
+    z-index: 1;
+    max-height: 347px;
+}
+
+//@media (min-width: 768px) {
+//  .image__container {
+//    width: 100%;
+//    height: 100%;
+//    max-height: 304px;
+//    border-radius: 5px;
+//  }
+//  .ezlogs__desktop {
+//    width: 100%;
+//  }
+//}
+@media (min-width: 1024px) {
+  .image__container {
+    min-width: 507px;
+    min-height: 368px;
+
+  }
+  .ezchatai__desktop {
+    width: 100%;
+  }
+}
+@media (max-width: 767px) {
+  .ezlogs__mobile {
+    display: block;
+  }
+  .ezchatai__mobile {
+    display: block;
+  }
+  .owchbuddy__mobile {
+    display: block;
+  }
+  .car__guru__mobile {
+    display: block;
+  }
+  .ezlogs__desktop {
+    display: none;
+  }
+  .ezchatai__desktop {
+    display: none;
+  }
+  .owchbuddy__desktop {
+    display: none;
+  }
+  .car__guru__desktop {
+    display: none;
+  }
+  .bot__left__item__img {
+    margin-top: 28px;
+    margin-left: 59px;
+  }
+  .ezlogz__vector__1 {
+    top: 10px;
+    left: 9.82px;
+    max-height: 75px;
+    max-width: 75px;
+  }
+  .ezlogz__vector__2 {
+    top: 6.12px;
+    right: 9px;
+    max-height: 52px;
+    max-width: 114px;
+  }
+  .ezlogz__vector__3 {
+    bottom: -41px;
+    left: 10px;
+    max-height: 75px;
+    max-width: 75px;
+  }
+  .ezchatai__vector__1 {
+    position: absolute;
+    bottom: 16px;
+    left: 14px;
+    z-index: 1;
+    height: 293px;
+    max-height: 293px;
+  }
+  .ezchatai__vector__2 {
+    position: absolute;
+    top: 16px;
+    right: 14px;
+    z-index: 1;
+    height: 293px;
+    max-height: 293px;
+
+  }
+  .car__guru__vector__1 {
+    position: absolute;
+    bottom: 16px;
+    left: 14px;
+    z-index: 1;
+    height: 293px;
+    max-height: 293px;
+  }
+  .car__guru__vector__2 {
+    position: absolute;
+    top: 16px;
+    right: 14px;
+    z-index: 1;
+    height: 293px;
+    max-height: 293px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .image__container {
+    min-width: 688px;
+    max-height: 304px;
+    min-height: 304px;
+  }
+  .ezlogs__mobile, .ezchatai__mobile, .owchbuddy__mobile, .car__guru__mobile {
+    max-height: 304px;
+  }
+}

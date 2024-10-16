@@ -1,95 +1,115 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+"use client";
+
+import HomeScreen from "@/screens/Home/HomeScreen";
+import { aboutData, homeData } from "@/constants/general";
+import AboutScreen from "@/screens/About/AboutScreen";
+import ProjectsScreen from "@/screens/Projects/ProjectsScreen";
+import ContactScreen from "@/screens/Contacts/ContactScreen";
+import SkillsScreen from "@/screens/Skills/SkillsScreen";
+import { useCallback, useEffect, useState } from "react";
+import { useStep } from "@/context/StepProvider/StepProvider";
+import { AnimatePresence, motion } from "framer-motion";
+import { Stepper } from "@/components/Stepper/Stepper";
+import { ContactFormModal } from "@/components";
+
+const { firstName, subTitle, jobTitle } = homeData;
+const { title, body } = aboutData;
+const components = [
+  <HomeScreen
+    firstName={firstName}
+    jobTitle={jobTitle}
+    subTitle={subTitle}
+    key={0}
+  />,
+  <AboutScreen title={title} body={body} key={1} />,
+  <ProjectsScreen key={2} />,
+  <SkillsScreen key={3} />,
+  <ContactScreen key={4} />,
+];
 
 export default function Home() {
+  const { currentStep, handleStepChange, previousStep } = useStep();
+  const [scrollLock, setScrollLock] = useState(false);
+
+  const handleScroll = useCallback(
+    (e: { deltaY: number }) => {
+      if (scrollLock) return;
+
+      setScrollLock(true);
+      setTimeout(() => setScrollLock(false), 2200);
+
+      const newStep = currentStep + (e.deltaY > 0 ? 1 : -1);
+      if (newStep >= 0 && newStep < components.length) {
+        setTimeout(() => {
+          handleStepChange(newStep);
+        }, 0);
+      }
+    },
+    [currentStep, handleStepChange, scrollLock],
+  );
+
+  const handleSwipe = useCallback(
+    (direction: string) => {
+      if (scrollLock) return;
+
+      const newStep = currentStep + (direction === "down" ? 1 : -1);
+      if (newStep >= 0 && newStep < components.length) {
+        setScrollLock(true);
+        setTimeout(() => {
+          handleStepChange(newStep);
+          setScrollLock(false);
+        }, 0);
+      }
+    },
+    [currentStep, handleStepChange, scrollLock],
+  );
+
+  useEffect(() => {
+    window.addEventListener("wheel", handleScroll);
+    window.addEventListener("keyup", (e) => {
+      if (e.key === "ArrowUp") {
+        handleSwipe("up");
+      } else if (e.key === "ArrowDown") {
+        handleSwipe("down");
+      }
+    });
+    return () => {
+      window.removeEventListener("wheel", handleScroll);
+    };
+  }, [handleScroll, handleSwipe]);
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
+    <>
+      <AnimatePresence mode="wait" initial={true}>
+        <motion.div
+          key={currentStep}
+          onAnimationComplete={() => setScrollLock(false)}
+          drag="y"
+          dragConstraints={{ top: 0, bottom: 0 }}
+          onDrag={(event, info) => {
+            if (info.offset.y > 30) handleSwipe("up");
+            else if (info.offset.y < -30) handleSwipe("down");
+          }}
+          initial={{
+            y: currentStep < previousStep ? "-25%" : "25%",
+          }}
+          animate={{
+            y: "0%",
+            opacity: [0, 1],
+          }}
+          exit={{
+            y: currentStep < previousStep ? "25%" : "-25%",
+            opacity: [1, 0],
+          }}
+          transition={{
+            duration: 1,
+            ease: "easeInOut",
+          }}
         >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+          {components[currentStep]}
+        </motion.div>
+        <Stepper activeStep={currentStep} setActiveStep={handleStepChange} />
+      </AnimatePresence>
+      <ContactFormModal />
+    </>
   );
 }
