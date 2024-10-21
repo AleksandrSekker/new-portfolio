@@ -1,18 +1,9 @@
 import {
   faDiscord,
   faGithub,
-  faInstagram,
-  faLinkedin,
   faTelegram,
-  faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
-import {
-  faBlog,
-  faBriefcase,
-  faContactCard,
-  faHome,
-  faInfo,
-} from "@fortawesome/free-solid-svg-icons";
+
 
 const links = [
   {
@@ -27,23 +18,8 @@ const links = [
     icon: faTelegram,
   },
   {
-    link: "https://www.instagram.com/sekk_er/",
-    id: 2,
-    icon: faInstagram,
-  },
-  {
-    link: "https://twitter.com/AleksandrSekker",
-    id: 3,
-    icon: faTwitter,
-  },
-  {
-    link: "https://www.linkedin.com/in/aleksandr-sekker-521352161/",
-    id: 4,
-    icon: faLinkedin,
-  },
-  {
     link: "github.com/AleksandrSekker",
-    id: 5,
+    id: 3,
     icon: faGithub,
   },
 ];
