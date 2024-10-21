@@ -6,14 +6,13 @@ import { type FieldError, useForm } from "react-hook-form";
 import axios from "axios";
 import { schema } from "@/components/ContactForm/schema";
 import { Input } from "@/components";
-import { SendMailTypes } from "@/components/types";
 import { PropsContactForm } from "@/components/ContactForm/type";
 
 export const ContactForm = ({
   handleSubState,
   setCloseModal,
 }: PropsContactForm) => {
-  const [responseMessage, setResponseMessage] = useState({
+  const [_, setResponseMessage] = useState({
     isSuccessful: false,
     message: "",
   });
@@ -25,13 +24,12 @@ export const ContactForm = ({
   const sendHandler = useCallback(async () => {
     console.log("watch", watch());
     try {
-      const req = await sendEmail(watch() as SendMailTypes);
-      if (req.status === 250) {
-        setResponseMessage({
-          isSuccessful: true,
-          message: "Thank you for your message.",
-        });
-      }
+      const formData = watch();
+      await axios.post('/api/send-to-discord', formData);
+      setResponseMessage({
+        isSuccessful: true,
+        message: "Thank you for your message.",
+      });
       handleSubState(true);
       setCloseModal();
       setTimeout(() => {
@@ -45,26 +43,6 @@ export const ContactForm = ({
       });
     }
   }, [handleSubState, setCloseModal, watch]);
-  console.log(responseMessage);
-  const sendEmail = async ({
-    email,
-    subject,
-    message,
-    name,
-    phone,
-  }: SendMailTypes) => {
-    return axios({
-      method: "post",
-      url: "/api/send-mail",
-      data: {
-        email,
-        subject,
-        message,
-        name,
-        phone,
-      },
-    });
-  };
 
   return (
     <form onSubmit={handleSubmit(sendHandler)}>
