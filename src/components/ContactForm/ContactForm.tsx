@@ -1,6 +1,5 @@
-"use client";
-
-import React, { useCallback, useState } from "react";
+'use client';
+import React, { useCallback } from "react";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { type FieldError, useForm } from "react-hook-form";
 import axios from "axios";
@@ -12,10 +11,7 @@ export const ContactForm = ({
   handleSubState,
   setCloseModal,
 }: PropsContactForm) => {
-  const [_, setResponseMessage] = useState({
-    isSuccessful: false,
-    message: "",
-  });
+
   const { register, handleSubmit, formState, watch } = useForm({
     resolver: zodResolver(schema),
     mode: "onSubmit",
@@ -26,10 +22,7 @@ export const ContactForm = ({
     try {
       const formData = watch();
       await axios.post('/api/send-to-discord', formData);
-      setResponseMessage({
-        isSuccessful: true,
-        message: "Thank you for your message.",
-      });
+
       handleSubState(true);
       setCloseModal();
       setTimeout(() => {
@@ -37,10 +30,7 @@ export const ContactForm = ({
       }, 3000);
     } catch (e) {
       console.log(e);
-      setResponseMessage({
-        isSuccessful: false,
-        message: "Oops something went wrong. Please try again.",
-      });
+
     }
   }, [handleSubState, setCloseModal, watch]);
 
