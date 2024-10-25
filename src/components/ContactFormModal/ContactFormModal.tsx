@@ -1,4 +1,5 @@
 "use client";
+
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import clsx from "clsx";
@@ -66,34 +67,37 @@ export const ContactFormModal = () => {
             handleSubState={handleSubState}
           />
         </motion.div>
-        <motion.div
-          ref={mobileModalRef}
-          className={clsx(
-            "fixed z-55 h-full max-h-fit w-full p-4 overflow-y-auto rounded bg-white  left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2",
 
-            "md:hidden",
-            "block",
-          )}
-          initial={{
-            x: "-50%",
-            y: "-100%",
-            opacity: 0,
-            zIndex: 99,
-          }}
-          animate={{
-            x: isModalOpen ? "-50%" : "-50%",
-            y: isModalOpen ? "-50%" : "300%",
-            opacity: isModalOpen ? 1 : 0,
-            transition: { duration: 0.7 },
-          }}
+      </AnimatePresence>
+      <AnimatePresence>
+        <motion.div
+            ref={mobileModalRef}
+            className={clsx(
+                "fixed z-55 h-full max-h-fit w-full p-4 overflow-y-auto rounded bg-white  left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2",
+
+                "md:hidden",
+                "block",
+            )}
+            initial={{
+              x: "-50%",
+              y: "-100%",
+              opacity: 0,
+              zIndex: 99,
+            }}
+            animate={{
+              x: isModalOpen ? "-50%" : "-50%",
+              y: isModalOpen ? "-50%" : "300%",
+              opacity: isModalOpen ? 1 : 0,
+              transition: {duration: 0.7},
+            }}
         >
           <ContactForm
-            setCloseModal={handleModalStateOpposite}
-            handleSubState={handleSubState}
+              setCloseModal={handleModalStateOpposite}
+              handleSubState={handleSubState}
           />
         </motion.div>
       </AnimatePresence>
-      {isSub && <ThankYouModal />}
+      {isSub && <ThankYouModal/>}
     </>
   );
 };
