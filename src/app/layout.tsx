@@ -5,10 +5,10 @@ import Head from "next/head";
 import { user } from "@/constants/general";
 import { ModalProvider } from "@/context/ModalContext/ModalContext";
 import { StepProvider } from "@/context/StepProvider/StepProvider";
-import { Header } from "@/components";
+import {Header, LayoutComponent} from "@/components";
 import { SidebarProvider } from "@/context/SidebarContext/SidebarContext";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({  subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Oleksandr Sekker",
@@ -20,6 +20,7 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
   return (
     <html lang="en">
       <body className={inter.className}>
@@ -35,9 +36,10 @@ export default function RootLayout({
             <StepProvider>
               <SidebarProvider>
                 <Header />
-                <main className="mx-auto max-w-screen-xl w-full px-4">
+                <LayoutComponent>
                   {children}
-                </main>
+                </LayoutComponent>
+
                 <div></div>
               </SidebarProvider>
             </StepProvider>

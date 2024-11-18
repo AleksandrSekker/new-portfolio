@@ -19,3 +19,4 @@ export { Hamburger } from "./Hamburger/Hamburger";
 export { Sidebar } from "./Sidebar/Sidebar";
 export { StyledLink } from "./StyledLink/StyledLink";
 export { SwiperSkills } from "./SwiperSkills/SwiperSkills";
+export { LayoutComponent } from './LayoutComponent/LayoutComponent'

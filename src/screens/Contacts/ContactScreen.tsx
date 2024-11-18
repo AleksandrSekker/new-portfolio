@@ -8,7 +8,7 @@ const ContactScreen = () => {
   const { handleModalState } = useModal();
 
   return (
-    <div className="m-auto w-full max-w-screen-xl px-2 py-2">
+    <div className="m-auto w-full max-w-screen-xl px-2 py-2 pb-32 md:pb-2">
       <div className="grid gap-8">
         <div className="space-y-4">
           <div>
