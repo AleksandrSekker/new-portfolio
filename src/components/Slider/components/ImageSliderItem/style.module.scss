@@ -183,34 +183,18 @@
     bottom: 16px;
     left: 14px;
     z-index: 1;
-    height: 293px;
-    max-height: 293px;
+    max-height: 150px;
+    max-width: 150px;
   }
   .ezchatai__vector__2 {
     position: absolute;
     top: 16px;
     right: 14px;
     z-index: 1;
-    height: 293px;
-    max-height: 293px;
+    max-height: 150px;
+    max-width: 150px;
+  }
 
-  }
-  .car__guru__vector__1 {
-    position: absolute;
-    bottom: 16px;
-    left: 14px;
-    z-index: 1;
-    height: 293px;
-    max-height: 293px;
-  }
-  .car__guru__vector__2 {
-    position: absolute;
-    top: 16px;
-    right: 14px;
-    z-index: 1;
-    height: 293px;
-    max-height: 293px;
-  }
 }
 @media (min-width: 768px) and (max-width: 1023px) {
   .image__container {
