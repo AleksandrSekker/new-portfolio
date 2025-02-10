@@ -174,12 +174,12 @@ const Slider = () => {
                               <div className={s.image__mobile}>
                                 <motion.img
                                   className={s.image}
-                                  src={src}
+                                  src={srcTablet}
                                   alt='image'
                                   initial={{
                                     x: 0,
-                                    scale: 2,
-                                    y: "100%",
+                                    scaleX: 1.5,
+                                    scaleY: 0.8,
                                   }}
                                   animate={{ x: ["0%", "-52%", "0%"] }}
                                   transition={{
@@ -195,11 +195,9 @@ const Slider = () => {
                                   src={srcTablet}
                                   alt='image'
                                   initial={{
-                                    x: 0,
-                                    bottom: 0,
-                                    height: "100%",
-                                    scale: 2.5,
-                                    y: "100%",
+                                      x: 0,
+                                      scaleX: 1.5,
+                                      scaleY: 1,
                                   }}
                                   animate={{ x: ["0%", "-52%", "0%"] }}
                                   transition={{
@@ -270,7 +268,7 @@ const Slider = () => {
                             <Button
                               label='Visit Website'
                               variant='primary'
-                              size={"large"}
+                              size={"extra-large"}
                             />
                           </Link>
                         </div>
@@ -280,7 +278,7 @@ const Slider = () => {
                             <Button
                               label='Visit Website'
                               variant='primary'
-                              size={"large"}
+                              size={"extra-large"}
                             />
                           </Link>
                         </div>

@@ -315,97 +315,14 @@ export const ImageSliderItem = ({
                   alt="image"
                   initial={{
                     x: "100%",
-                    scale: 1.5,
+                    scale: 1,
                     y: "30%",
                     rotate: "5deg",
                   }}
                   animate={{
-                    x: "-20%",
+                    x: "10%",
+                    scale: 0.8,
                     rotate: "0deg",
-                  }}
-                  transition={{
-                    duration: 2,
-                    ease: "linear",
-                  }}
-                />
-              </div>
-            </>
-          ) : null}
-          {index === 3 ? (
-            <>
-              <div className={s.car__guru__desktop}>
-                <motion.img
-                  className={s.car__guru__vector__1}
-                  src={"/slider/4-v1.webp"}
-                  alt="image"
-                  initial={{
-                    y: activeSlider === 3 ? "20%" : "0%",
-                    rotate: activeSlider === 3 ? "-5deg" : "0deg",
-                    scale: isTablet ? 1.2 : 1,
-                  }}
-                  animate={{
-                    y: activeSlider === 3 ? ["20%", "0%"] : ["0%", "20%"],
-                    rotate: activeSlider === 3 ? "0deg" : "-5deg",
-                    x: isTablet ? "20%" : "0%",
-                  }}
-                  transition={{
-                    duration: 2,
-                    ease: "linear",
-                  }}
-                />
-                <motion.img
-                  className={s.car__guru__vector__2}
-                  src={"/slider/4-v2.webp"}
-                  alt="image"
-                  initial={{
-                    y: activeSlider === 3 ? "-20%" : "0%",
-                    rotate: activeSlider === 3 ? "-5deg" : "0deg",
-                    scale: isTablet ? 1.2 : 1,
-                  }}
-                  animate={{
-                    y: activeSlider === 3 ? ["-20%", "0%"] : ["0%", "-20%"],
-                    rotate: activeSlider === 3 ? "0deg" : "-5deg",
-                    x: isTablet ? "-20%" : "0%",
-                  }}
-                  transition={{
-                    duration: 2,
-                    ease: "linear",
-                  }}
-                />
-              </div>
-              <div className={s.car__guru__mobile}>
-                <motion.img
-                  className={s.car__guru__vector__1}
-                  src={"/slider/4-v1-mob.webp"}
-                  alt="image"
-                  initial={{
-                    top: "50%",
-                    rotate: "0deg",
-                    scale: 2.05,
-                    left: "15%",
-                  }}
-                  animate={{
-                    top: "-50%",
-                    rotate: "5deg",
-                  }}
-                  transition={{
-                    duration: 2,
-                    ease: "linear",
-                  }}
-                />
-                <motion.img
-                  className={s.car__guru__vector__2}
-                  src={"/slider/4-v2-mob.webp"}
-                  alt="image"
-                  initial={{
-                    top: "-50%",
-                    rotate: "0deg",
-                    scale: 2.05,
-                    right: "15%",
-                  }}
-                  animate={{
-                    top: "60%",
-                    rotate: "5deg",
                   }}
                   transition={{
                     duration: 2,

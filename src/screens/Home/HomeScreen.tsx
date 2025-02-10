@@ -33,7 +33,7 @@ const HomeScreen = ({ firstName, image, jobTitle, subTitle }: HomeScreen) => {
           </Link>
         </motion.button>
       </RightBlockWrapper>
-      <div className='md:block hidden md:mx-auto lg:mx-0'>
+      <div className='lg:block hidden md:mx-auto lg:mx-0'>
         <AvatarImage image={image || "/assets/AvatarSecond.JPEG"} />
       </div>
     </div>

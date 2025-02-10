@@ -10,7 +10,7 @@ type AvatarImageProps = {
 // Button
 interface ButtonProps {
   backgroundColor?: string;
-  size?: "small" | "medium" | "large";
+  size?: "small" | "medium" | "large" | "extra-large";
   variant?: "primary" | "secondary";
   fullWidth?: boolean;
   label: string;
